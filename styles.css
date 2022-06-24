@@ -128,7 +128,6 @@ h1 {
 
 #gallery-item2,
 #gallery-item3 {
-    width: 42vw;
     max-width: 42vw;
 }
 
@@ -138,14 +137,16 @@ h2, p {
 
 h2 {
     color: var(--text-light-dark);
-    font-size: 3rem;
+    font-size: 1.2rem;
+    font-size: clamp(1.2rem, 1rem + 4vw, 3rem);
     margin-top: 1.5em;
     margin-bottom: 0.5em;
 }
 
 p {
     color: var(--text-dark-grey);
-    font-size: 1.375rem;
+    font-size: 1rem;
+    font-size: clamp(1rem, 0.819rem + 1vw, 1.375rem);
     font-weight: 100;
     margin-bottom: 3.75em;
 }
@@ -228,22 +229,23 @@ p {
     margin-bottom: 1.5em;
 }
 
-textarea {
-    display: block;
-    font-family: 'Roboto', sans-serif;
-    border: 1px solid var(--text-grey);
-    border-radius: 1vw;
-}
-
 #form-container {
     display: flex;
     justify-content: center;
+}
+
+textarea {
+    font-family: 'Roboto', sans-serif;
+    border: 1px solid var(--text-grey);
+    resize: none;
+    min-width: 100%;
 }
 
 #email {
     border: 1px solid var(--text-grey);
     border-radius: 1vw;
     margin-top: 1.5em;
+    margin-right: 1em;
     padding-top: 1.5em;
     padding-bottom: 1.5em;
     padding-right: 20em;
@@ -251,7 +253,6 @@ textarea {
 
 #btn-submit {
     font-weight: 800;
-    margin-left: 1em;
     color: var(--text-white);
     margin-top: 1em;
     background-color: var(--primary);
@@ -337,4 +338,46 @@ h3 {
 
 .fa-heart {
     color: #c71515;
+}
+
+@media screen and (max-width: 650px) {
+    #hero-text-container {
+        width: 100%;
+        margin-left: 1em;
+        margin-right: 0.3em;
+    }
+
+    #form-container {
+        display: block;
+    }
+
+    textarea {
+        display: block;
+        min-width: 97%;
+        margin-top: .5em;
+        margin-left: .2em;
+    }
+
+    #email {
+        display: block;
+        min-width: 97%;
+        margin-top: .5em;
+        margin-left: .2em;
+        padding-right: 0;
+    }
+
+    #btn-submit {
+        display: block;
+        min-width: 97%;
+        margin-top: .5em;
+        margin-left: .2em;
+        clip-path: polygon(6% 0, 80% 0%, 100% 0, 100% 61%, 96% 100%, 20% 100%, 0 100%, 0 45%);
+    }
+
+    #review1,
+    #review2,
+    #review3,
+    #review4 {
+        flex: 0 50 90%;
+    }
 }
